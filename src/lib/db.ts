@@ -6,6 +6,7 @@ export interface Profile {
   paymentName: string;
   paymentKey: string;
   avatarUrl: string;
+  currency: string;
 }
 
 export interface Campaign {

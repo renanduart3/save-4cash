@@ -51,12 +51,10 @@ export function BoxSelection() {
   const getTotal = () => selectedBoxes.reduce((sum, index) => sum + boxes[index].value, 0);
 
   const shareSelection = () => {
-    console.log("share button pressionado", profile);
     if (!profile || !campaign) return;
-    console.log("share button continua");
-    const message = `Help me reach my campaign of R$${campaign.targetAmount}!\n` +
+    const message = `Help me reach my campaign of ${profile.currency} ${campaign.targetAmount}!\n` +
       `Selected boxes total: R$${getTotal()}\n` +
-      `PIX key: ${profile.pixKey}`;
+      `${profile.paymentName}: ${profile.paymentKey}`;
     navigator.clipboard.writeText(message);
     toast({ title: "Copied!", description: "Message copied to clipboard" });
   };
